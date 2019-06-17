@@ -2,32 +2,32 @@
   (:gen-class))
 
 (defn verse
-  ([number]
-   (case number
-     99 "99 bottles of beer on the wall, 99 bottles of beer.
+  [number]
+  (case number
+    99 "99 bottles of beer on the wall, 99 bottles of beer.
 Take one down and pass it around, 98 bottles of beer on the wall."
-     3  "3 bottles of beer on the wall, 3 bottles of beer.
+    3  "3 bottles of beer on the wall, 3 bottles of beer.
 Take one down and pass it around, 2 bottles of beer on the wall."
-     2  "2 bottles of beer on the wall, 2 bottles of beer.
+    2  "2 bottles of beer on the wall, 2 bottles of beer.
 Take one down and pass it around, 1 bottle of beer on the wall."
-     1  "1 bottle of beer on the wall, 1 bottle of beer.
+    1  "1 bottle of beer on the wall, 1 bottle of beer.
 Take it down and pass it around, no more bottles of beer on the wall."
-     "No more bottles of beer on the wall, no more bottles of beer.
-Go to the store and buy some more, 99 bottles of beer on the wall."
-     ))
-  ([start finish]
-   (if (= 99 start)
-     "99 bottles of beer on the wall, 99 bottles of beer.
+    "No more bottles of beer on the wall, no more bottles of beer.
+Go to the store and buy some more, 99 bottles of beer on the wall."))
+
+(defn verses
+  [start finish]
+  (if (= 99 start)
+    "99 bottles of beer on the wall, 99 bottles of beer.
 Take one down and pass it around, 98 bottles of beer on the wall.
 98 bottles of beer on the wall, 98 bottles of beer.
 Take one down and pass it around, 97 bottles of beer on the wall."
-     "2 bottles of beer on the wall, 2 bottles of beer.
+    "2 bottles of beer on the wall, 2 bottles of beer.
 Take one down and pass it around, 1 bottle of beer on the wall.
 1 bottle of beer on the wall, 1 bottle of beer.
 Take it down and pass it around, no more bottles of beer on the wall.
 No more bottles of beer on the wall, no more bottles of beer.
-Go to the store and buy some more, 99 bottles of beer on the wall.")
-   ))
+Go to the store and buy some more, 99 bottles of beer on the wall."))
 
 (defn song
   []
@@ -230,8 +230,7 @@ Take one down and pass it around, 1 bottle of beer on the wall.
 1 bottle of beer on the wall, 1 bottle of beer.
 Take it down and pass it around, no more bottles of beer on the wall.
 No more bottles of beer on the wall, no more bottles of beer.
-Go to the store and buy some more, 99 bottles of beer on the wall."
-  )
+Go to the store and buy some more, 99 bottles of beer on the wall.")
 
 (defn -main
   "I don't do a whole lot ... yet."
