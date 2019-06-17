@@ -17,7 +17,12 @@ Take one down and pass it around, %s bottles of beer on the wall."
              number
              (dec number))))
   ([start finish]
-   (string/join "\n" (map verse (reverse (range finish (inc start)))))))
+   (->> start
+        inc
+        (range finish)
+        reverse
+        (map verse)
+        (string/join "\n"))))
 
 (defn song
   []
