@@ -1,36 +1,55 @@
 # bottles
 
-FIXME: description
+[99 Bottles of Beer](https://en.wikipedia.org/wiki/99_Bottles_of_Beer) in Clojure.
+
+Inspired by https://www.sandimetz.com/99bottles and https://github.com/sandimetz/99bottles
+
 
 ## Installation
 
-Download from http://example.com/FIXME.
+Download from https://github.com/dijonkitchen/bottles
 
 ## Usage
 
-FIXME: explanation
+```sh
+lein run
+```
 
-    $ java -jar bottles-0.1.0-standalone.jar [args]
+### Options
 
-## Options
+TODO: Perhaps add line number(s) as optional argurments...?
 
-FIXME: listing of options this app accepts.
+### Examples
 
-## Examples
+TODO
 
-...
 
-### Bugs
+## Testing
 
-...
+```sh
+lein test
+```
 
-### Any Other Sections
-### That You Think
-### Might be Useful
+
+## Beliefs/Desires
+
+Hoping to learn something by exercising functional programming in Clojure to figure out a tough problem in object-orieneted programming.
+
+Wondering if it'll be any easier/simpler.
+
+
+## Process
+
+0. [Documenting hypotheses](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html) (this Readme!)
+0. [Design](https://www.youtube.com/watch?v=f84n5oFoZBc)
+0. [Behavioral testing](https://en.wikipedia.org/wiki/Behavior-driven_development)
+0. [Domain modeling](https://en.wikipedia.org/wiki/Domain-driven_design)
+0. [`recur`](http://blog.cognitect.com/blog/2017/6/5/repl-debugging-no-stacktrace-required)
+
 
 ## License
 
-Copyright © 2019 FIXME
+Copyright © 2019 Jonathan Chen
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
