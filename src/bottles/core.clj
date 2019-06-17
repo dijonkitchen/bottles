@@ -42,6 +42,14 @@ Take one down and pass it around, %s bottles of beer on the wall."
   (verses))
 
 (defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+  ([]
+   (println (song)))
+  ([number]
+   (-> number
+       Integer/parseInt
+       verse
+       println))
+  ([start finish]
+   (let [s (Integer/parseInt start)
+         f (Integer/parseInt finish)]
+     (println (verses s f)))))
