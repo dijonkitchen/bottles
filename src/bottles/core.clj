@@ -5,7 +5,10 @@
    [clojure.string :as string]))
 
 (defn verse
-  "Returns the verse `number` of the song."
+  "Returns the verse `number` of the song.
+  Defaults to whole song."
+  ([]
+   (verse 99 0))
   ([number]
    (case number
      2  "2 bottles of beer on the wall, 2 bottles of beer.
@@ -30,7 +33,7 @@ Take one down and pass it around, %s bottles of beer on the wall."
 (defn song
   "Returns the whole song."
   []
-  (verse 99 0))
+  (verse))
 
 (defn -main
   "I don't do a whole lot ... yet."
