@@ -1,9 +1,11 @@
 (ns bottles.core
+  "Outputs parts or whole '99 Bottles of Beer' song."
   (:gen-class)
   (:require
    [clojure.string :as string]))
 
 (defn verse
+  "Returns the verse `number` of the song."
   ([number]
    (case number
      2  "2 bottles of beer on the wall, 2 bottles of beer.
@@ -26,6 +28,7 @@ Take one down and pass it around, %s bottles of beer on the wall."
         (string/join "\n"))))
 
 (defn song
+  "Returns the whole song."
   []
   (verse 99 0))
 
