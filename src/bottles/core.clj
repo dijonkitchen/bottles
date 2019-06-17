@@ -1,6 +1,7 @@
 (ns bottles.core
-  (:require [clojure.string :as string])
-  (:gen-class))
+  (:gen-class)
+  (:require
+   [clojure.string :as string]))
 
 (defn verse
   ([number]
