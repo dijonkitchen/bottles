@@ -4,12 +4,17 @@
   (:require
    [clojure.string :as string]))
 
+(defn- container
+  [number]
+  (if (= 1 number)
+    " bottle"
+    " bottles"))
+
 (defn- num-containers [number]
   (case number
     6 "1 six-pack"
-    1 "1 bottle"
     0 "no more bottles"
-    (str number " bottles")))
+    (str number (container number))))
 
 (defn verse
   "Returns the verse `number` of the song."
