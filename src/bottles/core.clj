@@ -4,30 +4,26 @@
   (:require
    [clojure.string :as string]))
 
+(defn- num-units [number]
+  (case number
+    6 "1 six-pack"
+    1 "1 bottle"
+    0 "no more bottles"
+    (str number " bottles")))
+
 (defn verse
   "Returns the verse `number` of the song."
   [number]
   (case number
-    7 "7 bottles of beer on the wall, 7 bottles of beer.
-Take one down and pass it around, 1 six-pack of beer on the wall."
-
-    6 "1 six-pack of beer on the wall, 1 six-pack of beer.
-Take one down and pass it around, 5 bottles of beer on the wall."
-
-    2 "2 bottles of beer on the wall, 2 bottles of beer.
-Take one down and pass it around, 1 bottle of beer on the wall."
-
-    1 "1 bottle of beer on the wall, 1 bottle of beer.
-Take it down and pass it around, no more bottles of beer on the wall."
-
     0 "No more bottles of beer on the wall, no more bottles of beer.
 Go to the store and buy some more, 99 bottles of beer on the wall."
 
-    (format "%s bottles of beer on the wall, %s bottles of beer.
-Take one down and pass it around, %s bottles of beer on the wall."
-            number
-            number
-            (dec number))))
+    (format "%s of beer on the wall, %s of beer.
+Take %s down and pass it around, %s of beer on the wall."
+            (num-units number)
+            (num-units number)
+            (if (= 1 number) "it" "one")
+            (num-units (dec number)))))
 
 (defn verses
   "Returns a range of verses from start to finish, inclusive.
