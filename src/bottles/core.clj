@@ -4,7 +4,7 @@
   (:require
    [clojure.string :as string]))
 
-(defn- num-units [number]
+(defn- num-containers [number]
   (case number
     6 "1 six-pack"
     1 "1 bottle"
@@ -20,10 +20,10 @@ Go to the store and buy some more, 99 bottles of beer on the wall."
 
     (format "%s of beer on the wall, %s of beer.
 Take %s down and pass it around, %s of beer on the wall."
-            (num-units number)
-            (num-units number)
+            (num-containers number)
+            (num-containers number)
             (if (= 1 number) "it" "one")
-            (num-units (dec number)))))
+            (num-containers (dec number)))))
 
 (defn verses
   "Returns a range of verses from start to finish, inclusive.
