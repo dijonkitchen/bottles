@@ -16,6 +16,12 @@
     0 "no more bottles"
     (str number (container number))))
 
+(defn- pronoun
+  [number]
+  (if (= 1 number)
+    "it"
+    "one"))
+
 (defn verse
   "Returns the verse `number` of the song."
   [number]
@@ -27,7 +33,7 @@ Go to the store and buy some more, 99 bottles of beer on the wall."
 Take %s down and pass it around, %s of beer on the wall."
             (num-containers number)
             (num-containers number)
-            (if (= 1 number) "it" "one")
+            (pronoun number)
             (num-containers (dec number)))))
 
 (defn verses
