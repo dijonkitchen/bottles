@@ -9,20 +9,41 @@ Inspired by https://www.sandimetz.com/99bottles and https://github.com/sandimetz
 
 Download from https://github.com/dijonkitchen/bottles
 
+If you want to do the exercise yourself, you can check out the starting branch with the initial test suite: https://github.com/dijonkitchen/bottles/tree/01-starting-test-suite
 ## Usage
 
+Full song:
 ```sh
 lein run
 ```
 
 ### Options
 
-TODO: Perhaps add line number(s) as optional argurments...?
+A single verse:
+```sh
+lein run [verse-number]
+```
+
+Multiple verses:
+```sh
+lein run [starting-verse ending-verse]
+```
 
 ### Examples
 
-TODO
+```sh
+lein run 2
+;; 2 bottles of beer on the wall, 2 bottles of beer.
+;; Take one down and pass it around, 1 bottle of beer on the wall.
+```
 
+```sh
+lein run 2 1
+;; 2 bottles of beer on the wall, 2 bottles of beer.
+;; Take one down and pass it around, 1 bottle of beer on the wall.
+;; 1 bottle of beer on the wall, 1 bottle of beer.
+;; Take it down and pass it around, no more bottles of beer on the wall.
+```
 
 ## Testing
 
