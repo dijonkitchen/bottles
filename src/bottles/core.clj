@@ -27,18 +27,29 @@
     "it"
     "one"))
 
+(defn- action
+  [number]
+  (if (= 0 number)
+    "Go to the store and buy some more"
+    (format
+     "Take %s down and pass it around"
+     (pronoun number))))
+
 (defn verse
   "Returns the verse `number` of the song."
   [number]
   (case number
-    0 "No more bottles of beer on the wall, no more bottles of beer.
-Go to the store and buy some more, 99 bottles of beer on the wall."
+    0 (format "%s of beer on the wall, %s of beer.
+%s, 99 bottles of beer on the wall."
+              (string/capitalize (num-containers number))
+              (num-containers number)
+              (action number))
 
     (format "%s of beer on the wall, %s of beer.
-Take %s down and pass it around, %s of beer on the wall."
+%s, %s of beer on the wall."
+            (string/capitalize (num-containers number))
             (num-containers number)
-            (num-containers number)
-            (pronoun number)
+            (action number)
             (num-containers (dec number)))))
 
 (defn verses
