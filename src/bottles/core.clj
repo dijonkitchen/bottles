@@ -35,22 +35,20 @@
      "Take %s down and pass it around"
      (pronoun number))))
 
+(defn- successor [number]
+  (if (= 0 number)
+    99
+    (dec number)))
+
 (defn verse
   "Returns the verse `number` of the song."
   [number]
-  (case number
-    0 (format "%s of beer on the wall, %s of beer.
-%s, 99 bottles of beer on the wall."
-              (string/capitalize (num-containers number))
-              (num-containers number)
-              (action number))
-
-    (format "%s of beer on the wall, %s of beer.
+  (format "%s of beer on the wall, %s of beer.
 %s, %s of beer on the wall."
-            (string/capitalize (num-containers number))
-            (num-containers number)
-            (action number)
-            (num-containers (dec number)))))
+          (string/capitalize (num-containers number))
+          (num-containers number)
+          (action number)
+          (num-containers (successor number))))
 
 (defn verses
   "Returns a range of verses from start to finish, inclusive.
