@@ -4,6 +4,12 @@
   (:require
    [clojure.string :as string]))
 
+(defn quantity
+  [number]
+  (if (= 0 number)
+    "no more"
+    number))
+
 (defn- container
   [number]
   (if (= 1 number)
@@ -13,8 +19,7 @@
 (defn- num-containers [number]
   (case number
     6 "1 six-pack"
-    0 "no more bottles"
-    (str number (container number))))
+    (str (quantity number) (container number))))
 
 (defn- pronoun
   [number]
