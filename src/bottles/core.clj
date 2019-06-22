@@ -6,20 +6,20 @@
 
 (defn quantity
   [number]
-  (if (= 0 number)
-    "no more"
+  (case number
+    6 "1"
+    0 "no more"
     number))
 
 (defn- container
   [number]
-  (if (= 1 number)
-    " bottle"
+  (case number
+    6 " six-pack"
+    1 " bottle"
     " bottles"))
 
 (defn- num-containers [number]
-  (case number
-    6 "1 six-pack"
-    (str (quantity number) (container number))))
+  (str (quantity number) (container number)))
 
 (defn- pronoun
   [number]
