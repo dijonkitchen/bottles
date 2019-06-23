@@ -2,53 +2,18 @@
   "Outputs parts or whole '99 Bottles of Beer' song."
   (:gen-class)
   (:require
+   [bottles.bottle-number :as bn]
    [clojure.string :as string]))
-
-(defn quantity
-  [number]
-  (case number
-    6 "1"
-    0 "no more"
-    number))
-
-(defn- container
-  [number]
-  (case number
-    6 " six-pack"
-    1 " bottle"
-    " bottles"))
-
-(defn- num-containers [number]
-  (str (quantity number) (container number)))
-
-(defn- pronoun
-  [number]
-  (if (= 1 number)
-    "it"
-    "one"))
-
-(defn- action
-  [number]
-  (if (= 0 number)
-    "Go to the store and buy some more"
-    (format
-     "Take %s down and pass it around"
-     (pronoun number))))
-
-(defn- successor [number]
-  (if (= 0 number)
-    99
-    (dec number)))
 
 (defn verse
   "Returns the verse `number` of the song."
   [number]
   (format "%s of beer on the wall, %s of beer.
 %s, %s of beer on the wall."
-          (string/capitalize (num-containers number))
-          (num-containers number)
-          (action number)
-          (num-containers (successor number))))
+          (string/capitalize (bn/num-containers number))
+          (bn/num-containers number)
+          (bn/action number)
+          (bn/num-containers (bn/successor number))))
 
 (defn verses
   "Returns a range of verses from start to finish, inclusive.
