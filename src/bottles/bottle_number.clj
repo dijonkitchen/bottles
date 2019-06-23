@@ -11,12 +11,14 @@
 (defn- container
   [number]
   (case number
-    6 " six-pack"
-    1 " bottle"
-    " bottles"))
+    6 "six-pack"
+    1 "bottle"
+    "bottles"))
 
 (defn num-containers [number]
-  (str (quantity number) (container number)))
+  (str (quantity number)
+       " "
+       (container number)))
 
 (defn- pronoun
   [number]
