@@ -6,7 +6,7 @@
   (case number
     6 "1"
     0 "no more"
-    number))
+    (str number)))
 
 (defn- container
   [number]
