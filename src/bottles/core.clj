@@ -20,20 +20,18 @@
 (defn verses
   "Returns a range of verses from start to finish, inclusive.
   Defaults to whole song."
-  ([]
-   (verses 99 0))
-  ([start finish]
-   (->> start
-        inc
-        (range finish)
-        reverse
-        (map verse)
-        (string/join "\n"))))
+  [start finish]
+  (->> start
+       inc
+       (range finish)
+       reverse
+       (map verse)
+       (string/join "\n")))
 
 (defn song
   "Returns the whole song."
   []
-  (verses))
+  (verses 99 0))
 
 (defn -main
   ([]
