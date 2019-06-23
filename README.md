@@ -68,6 +68,15 @@ Wondering if it'll be any easier/simpler.
 0. [`recur`](http://blog.cognitect.com/blog/2017/6/5/repl-debugging-no-stacktrace-required)
 
 
+## Findings
+
+First two-thirds of book seems useful and relevant to most programmers. Having a great test suite that you can lean on while refactoring is essential to slowly evolving your code. The care taken to explicitly edit one line at a time is an important one, particularly for a real-world, larger problem.
+
+The latter third seemed less relevant for functional programmers (FP) and in particular Clojure users. With FP, you get a lot of the simplicity and performance since most everything is a pure function. Additionally, with Clojure's built-in persistent, immutable data structures, garbage collection is very efficient and object instantiation and memory allocation are not relevant. There doesn't need to be a tradeoff of understanding different objects passing messages and performance with mutable state.
+
+I think the Primative Obsession code smell isn't a bad tradeoff since you don't have the indirection of different objects/instances which are introduced by the Extract Class refactoring pattern. This may break the Law of Demeter, but you get the benefit of a huge set of functions that operate on a few useful primative data strutures.
+
+
 ## License
 
 Copyright © 2019 Jonathan Chen
