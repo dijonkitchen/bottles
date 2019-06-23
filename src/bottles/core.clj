@@ -8,12 +8,14 @@
 (defn verse
   "Returns the verse `number` of the song."
   [number]
-  (format "%s of beer on the wall, %s of beer.
+  (let [bottle-number      (bn/num-containers number)
+        next-bottle-number (bn/num-containers (bn/successor number))]
+    (format "%s of beer on the wall, %s of beer.
 %s, %s of beer on the wall."
-          (string/capitalize (bn/num-containers number))
-          (bn/num-containers number)
-          (bn/action number)
-          (bn/num-containers (bn/successor number))))
+            (string/capitalize bottle-number)
+            bottle-number
+            (bn/action number)
+            next-bottle-number)))
 
 (defn verses
   "Returns a range of verses from start to finish, inclusive.
