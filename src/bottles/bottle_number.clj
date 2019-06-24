@@ -3,15 +3,23 @@
 
 (def container-size 6)
 
+(def case-size (* 4 container-size))
+
 (defn- even-container?
   [number]
   (= 0 (mod number container-size)))
+
+(defn- even-case?
+  [number]
+  (= 0 (mod number case-size)))
 
 (defn- quantity
   [number]
   (cond
     (= 0 number)             "no more"
     (= 6 number)             "1"
+    (even-case? number)      (str (/ number case-size))
+    (= case-size number)     "1"
     (even-container? number) (str (/ number container-size))
     :else                    (str number)))
 
@@ -20,6 +28,8 @@
   (cond
     (= 0 number)             "bottles"
     (= 1 number)             "bottle"
+    (= case-size number)     "case"
+    (even-case? number)      "cases"
     (= 6 number)             "six-pack"
     (even-container? number) "six-packs"
     :else                    "bottles"))
