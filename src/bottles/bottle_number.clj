@@ -1,19 +1,28 @@
 (ns bottles.bottle-number
   "Functions related to the number of bottles.")
 
+(def container-size 6)
+
+(defn- even-container?
+  [number]
+  (= 0 (mod number container-size)))
+
 (defn- quantity
   [number]
-  (case number
-    6 "1"
-    0 "no more"
-    (str number)))
+  (cond
+    (= 0 number)             "no more"
+    (= 6 number)             "1"
+    (even-container? number) (str (/ number container-size))
+    :else                    (str number)))
 
 (defn- container
   [number]
-  (case number
-    6 "six-pack"
-    1 "bottle"
-    "bottles"))
+  (cond
+    (= 0 number)             "bottles"
+    (= 1 number)             "bottle"
+    (= 6 number)             "six-pack"
+    (even-container? number) "six-packs"
+    :else                    "bottles"))
 
 (defn num-containers [number]
   (str (quantity number)
