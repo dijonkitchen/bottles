@@ -16,23 +16,23 @@
 (defn- quantity
   [number]
   (cond
-    (= 0 number)             "no more"
-    (= 6 number)             "1"
-    (even-case? number)      (str (/ number case-size))
-    (= case-size number)     "1"
-    (even-container? number) (str (/ number container-size))
-    :else                    (str number)))
+    (= 0 number)              "no more"
+    (= container-size number) "1"
+    (even-case? number)       (str (/ number case-size))
+    (= case-size number)      "1"
+    (even-container? number)  (str (/ number container-size))
+    :else                     (str number)))
 
 (defn- container
   [number]
   (cond
-    (= 0 number)             "bottles"
-    (= 1 number)             "bottle"
-    (= case-size number)     "case"
-    (even-case? number)      "cases"
-    (= 6 number)             "six-pack"
-    (even-container? number) "six-packs"
-    :else                    "bottles"))
+    (= 0 number)              "bottles"
+    (= 1 number)              "bottle"
+    (= case-size number)      "case"
+    (even-case? number)       "cases"
+    (= container-size number) "six-pack"
+    (even-container? number)  "six-packs"
+    :else                     "bottles"))
 
 (defn num-containers [number]
   (str (quantity number)
