@@ -46,39 +46,39 @@ Take one down and pass it around, 1 six-pack of beer on the wall."]
 Take one down and pass it around, 5 bottles of beer on the wall."]
       (is (= expected (sut/verse 6)))))
 
-    (testing "verse 2"
-      (let [expected "2 bottles of beer on the wall, 2 bottles of beer.
+  (testing "verse 2"
+    (let [expected "2 bottles of beer on the wall, 2 bottles of beer.
 Take one down and pass it around, 1 bottle of beer on the wall."]
-        (is (= expected (sut/verse 2)))))
+      (is (= expected (sut/verse 2)))))
 
-    (testing "verse 1"
-      (let [expected "1 bottle of beer on the wall, 1 bottle of beer.
+  (testing "verse 1"
+    (let [expected "1 bottle of beer on the wall, 1 bottle of beer.
 Take it down and pass it around, no more bottles of beer on the wall."]
-        (is (= expected (sut/verse 1)))))
+      (is (= expected (sut/verse 1)))))
 
-    (testing "verse 0"
-      (let [expected "No more bottles of beer on the wall, no more bottles of beer.
+  (testing "verse 0"
+    (let [expected "No more bottles of beer on the wall, no more bottles of beer.
 Go to the store and buy some more, 99 bottles of beer on the wall."]
-        (is (= expected (sut/verse 0)))))
+      (is (= expected (sut/verse 0)))))
 
-    (testing "a couple verses"
-      (let [expected "99 bottles of beer on the wall, 99 bottles of beer.
+  (testing "a couple verses"
+    (let [expected "99 bottles of beer on the wall, 99 bottles of beer.
 Take one down and pass it around, 98 bottles of beer on the wall.
 98 bottles of beer on the wall, 98 bottles of beer.
 Take one down and pass it around, 97 bottles of beer on the wall."]
-        (is (= expected (sut/verses 99 98)))))
+      (is (= expected (sut/verses 99 98)))))
 
-    (testing "a few verses"
-      (let [expected "2 bottles of beer on the wall, 2 bottles of beer.
+  (testing "a few verses"
+    (let [expected "2 bottles of beer on the wall, 2 bottles of beer.
 Take one down and pass it around, 1 bottle of beer on the wall.
 1 bottle of beer on the wall, 1 bottle of beer.
 Take it down and pass it around, no more bottles of beer on the wall.
 No more bottles of beer on the wall, no more bottles of beer.
 Go to the store and buy some more, 99 bottles of beer on the wall."]
-        (is (= expected (sut/verses 2 0)))))
+      (is (= expected (sut/verses 2 0)))))
 
-    (testing "the whole thing"
-      (let [expected "99 bottles of beer on the wall, 99 bottles of beer.
+  (testing "the whole thing"
+    (let [expected "99 bottles of beer on the wall, 99 bottles of beer.
 Take one down and pass it around, 98 bottles of beer on the wall.
 98 bottles of beer on the wall, 98 bottles of beer.
 Take one down and pass it around, 97 bottles of beer on the wall.
@@ -278,4 +278,4 @@ Take one down and pass it around, 1 bottle of beer on the wall.
 Take it down and pass it around, no more bottles of beer on the wall.
 No more bottles of beer on the wall, no more bottles of beer.
 Go to the store and buy some more, 99 bottles of beer on the wall."]
-        (is (= expected (sut/song))))))
+      (is (= expected (sut/song))))))
