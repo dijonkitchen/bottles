@@ -1,5 +1,9 @@
 # bottles
 
+[![CircleCI](https://circleci.com/gh/dijonkitchen/bottles.svg?style=svg)](https://circleci.com/gh/dijonkitchen/bottles)
+
+[![codecov](https://codecov.io/gh/dijonkitchen/bottles/branch/master/graph/badge.svg)](https://codecov.io/gh/dijonkitchen/bottles)
+
 [99 Bottles of Beer](https://en.wikipedia.org/wiki/99_Bottles_of_Beer) in Clojure.
 
 Inspired by https://www.sandimetz.com/99bottles and https://github.com/sandimetz/99bottles
