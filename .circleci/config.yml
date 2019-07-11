@@ -38,7 +38,8 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "project.clj" }}
 
-      # run tests!
+      - run: lein eastwood
+
       - run: lein test
 
       - run: lein cloverage --codecov
