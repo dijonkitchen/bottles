@@ -5,6 +5,7 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.1"]]
   :plugins [[jonase/eastwood "0.3.5"]
+            [lein-cljfmt "0.6.4"]
             [lein-cloverage "1.1.1"]]
   :main ^:skip-aot bottles.core
   :target-path "target/%s"
