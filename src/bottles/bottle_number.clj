@@ -7,16 +7,16 @@
 
 (defn- even-container?
   [number]
-  (= 0 (mod number container-size)))
+  (zero? (mod number container-size)))
 
 (defn- even-case?
   [number]
-  (= 0 (mod number case-size)))
+  (zero? (mod number case-size)))
 
 (defn- quantity
   [number]
   (cond
-    (= 0 number)              "no more"
+    (zero? number)            "no more"
     (= container-size number) "1"
     (even-case? number)       (str (/ number case-size))
     (= case-size number)      "1"
@@ -26,7 +26,7 @@
 (defn- container
   [number]
   (cond
-    (= 0 number)              "bottles"
+    (zero? number)            "bottles"
     (= 1 number)              "bottle"
     (= case-size number)      "case"
     (even-case? number)       "cases"
@@ -47,13 +47,13 @@
 
 (defn action
   [number]
-  (if (= 0 number)
+  (if (zero? number)
     "Go to the store and buy some more"
     (format
      "Take %s down and pass it around"
      (pronoun number))))
 
 (defn successor [number]
-  (if (= 0 number)
+  (if (zero? number)
     99
     (dec number)))
