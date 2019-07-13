@@ -44,5 +44,7 @@ jobs:
 
       - run: lein test
 
+      - run: lein kibit
+
       - run: lein cloverage --codecov
       - run: bash <(curl -s https://codecov.io/bash)
