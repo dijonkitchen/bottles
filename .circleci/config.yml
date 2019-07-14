@@ -23,25 +23,106 @@ jobs:
 
     steps:
       - checkout
+      - save_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/repo
 
-      # Download and cache dependencies
+  cljfmt:
+    docker:
+      - image: circleci/clojure:lein-2.9.1
+    working_directory: ~/repo
+    steps:
+      - restore_cache:
+          keys:
+            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "project.clj" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-
       - run: lein cljfmt check
 
+  eastwood:
+    docker:
+      - image: circleci/clojure:lein-2.9.1
+    working_directory: ~/repo
+    steps:
+      - restore_cache:
+          keys:
+            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "project.clj" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
       - run: lein eastwood
 
+  kibit:
+    docker:
+      - image: circleci/clojure:lein-2.9.1
+    working_directory: ~/repo
+    steps:
+      - restore_cache:
+          keys:
+            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "project.clj" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
       - run: lein kibit
 
+  test:
+    docker:
+      - image: circleci/clojure:lein-2.9.1
+    working_directory: ~/repo
+    steps:
+      - restore_cache:
+          keys:
+            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "project.clj" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
       # runs tests and coverage!
       - run: lein cloverage --codecov
       - run: bash <(curl -s https://codecov.io/bash)
 
+  cache_deps:
+    docker:
+      - image: circleci/clojure:lein-2.9.1
+    working_directory: ~/repo
+    steps:
+      - restore_cache:
+          keys:
+            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - save_cache:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "project.clj" }}
+
+workflows:
+  version: 2
+  master:
+    jobs:
+      - build
+      - cljfmt:
+          requires:
+            - build
+      - eastwood:
+          requires:
+            - build
+      - kibit:
+          requires:
+            - build
+      - test:
+          requires:
+            - build
+      - cache_deps:
+          requires:
+            - cljfmt
+            - eastwood
+            - kibit
+            - test
